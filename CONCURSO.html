@@ -1,93 +1,102 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telecable - Concurso Tecnológico</title>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background: url('https://www.transparenttextures.com/patterns/tech-pattern.png'), #c8102e;
-        /* Fondo con textura tecnológica y rojo */
-        color: #ffffff;
-        background-blend-mode: multiply;
-        /* Mezcla el color de fondo con la textura */
-      }
-
-      header {
-        text-align: center;
-        padding: 40px 20px;
-        border-bottom: 2px solid #ffffff;
-        /* Línea inferior blanca */
-        background: rgba(0, 0, 0, 0.5);
-        /* Fondo semi-transparente para mayor contraste */
-      }
-
-      h1 {
-        margin: 0;
-        font-size: 4em;
-      }
-
-      h2 {
-        margin: 10px 0;
-        font-size: 2.5em;
-      }
-
-      .content {
-        padding: 20px;
-        text-align: center;
-        background-color: rgba(255, 255, 255, 0.8);
-        /* Fondo blanco semi-transparente */
-        color: #333;
-        border-radius: 10px;
-        margin: 20px auto;
-        max-width: 80%;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        /* Sombra para efecto de profundidad */
-      }
-
-      .warning {
-        background-color: #f8d7da;
-        /* Rojo claro */
-        color: #721c24;
-        border: 1px solid #f5c6cb;
-        border-radius: 5px;
-        padding: 20px;
-        margin: 20px auto;
-        max-width: 80%;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        /* Sombra para efecto de profundidad */
-      }
-
-      .warning h3 {
-        margin-top: 0;
-      }
-
-      @media (max-width: 768px) {
-        h1 {
-          font-size: 2.5em;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://www.transparenttextures.com/patterns/tech-pattern.png'), #000000; /* Fondo con textura tecnológica y negro */
+            color: #ffffff;
+            background-blend-mode: multiply; /* Mezcla el color de fondo con la textura */
         }
-
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 2px solid #ffffff; /* Línea inferior blanca */
+            background: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente para mayor contraste */
+        }
+        header img {
+            max-width: 100%;
+            height: auto;
+            width: 300px; /* Ajusta el tamaño de la imagen según sea necesario */
+        }
         h2 {
-          font-size: 1.5em;
+            margin: 10px 0;
+            font-size: 2.5em;
         }
-      }
+        .content, .warning {
+            padding: 20px;
+            text-align: center;
+            background-color: #ffffff; /* Fondo blanco para los cuadros de texto */
+            color: #000000; /* Texto negro por defecto */
+            border-radius: 10px; /* Bordes redondeados */
+            margin: 20px auto;
+            max-width: 80%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para efecto de profundidad */
+            display: none; /* Ocultos por defecto */
+        }
+        .warning {
+            background-color: #ffffff; /* Fondo blanco */
+            color: #d9534f; /* Texto rojo brillante */
+            border: 1px solid #f5c6cb; /* Borde rojo claro */
+        }
+        .warning h3 {
+            margin-top: 0;
+        }
+        .btn-participar {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: #ffffff;
+            background-color: #c8102e; /* Color de fondo del botón */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+        .btn-participar:hover {
+            background-color: #a40e1d; /* Color de fondo del botón en hover */
+        }
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 1.5em;
+            }
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <header>
-      <h1>Telecable</h1>
-      <h2>CONCURSO TECNOLÓGICO</h2>
+        <img src="https://opadmin.telecablecr.com/img/telecable_rojo2.png" alt="Logo Telecable">
+        <h2>CONCURSO TECNOLÓGICO</h2>
+        <button class="btn-participar" onclick="toggleContent()">PARTICIPAR AHORA</button>
     </header>
+    
     <div class="content">
-      <p>Para participar en nuestro concurso, simplemente escanea el código QR proporcionado.</p>
-      <p>¡Buena suerte!</p>
+        <p>Esto no es un concurso, es una prueba de ingeniería social. Para protegerte para el futuro, tal vez por curiosidad escaneaste este QR, pero en un escenario real, un atacante puede aprovecharse de tu confianza para dañarte a vos y a la empresa.</p>
     </div>
+    
     <div class="warning">
-      <h3>¡Advertencia de Seguridad!</h3>
-      <p>Ten cuidado con escanear códigos QR, incluso si parecen "seguros". Podrías ser víctima de estafas. No compartas información personal ni financiera sin verificar la fuente.</p>
+        <h3>¡Advertencia de Seguridad!</h3>
+        <p>Es muy valioso para nosotros que estés en modo Zero Trust (cero confianza) para que potencies la seguridad de Telecable y minimicemos los riesgos juntos.</p>
     </div>
-  </body>
+
+    <script>
+        function toggleContent() {
+            var content = document.querySelector('.content');
+            var warning = document.querySelector('.warning');
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+                warning.style.display = 'block';
+            } else {
+                content.style.display = 'none';
+                warning.style.display = 'none';
+            }
+        }
+    </script>
+</body>
 </html>
